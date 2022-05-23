@@ -1,12 +1,15 @@
 import React from "react";
 import "../css/header.css";
 import logo from "../assets/imgs/airbnb.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
     return (
         <header>
             <div>
-                <img width="102px" height="32px" src={logo} alt="logo" />
+                <Link to="/">
+                    <img width="102px" height="32px" src={logo} alt="logo" />
+                </Link>
             </div>
             <div className="header-center-container">
                 <div className="search">
