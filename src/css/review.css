@@ -1,0 +1,16 @@
+.review-profile{
+    display:flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+.review-nickname{
+    display: flex;
+    flex-direction: column;
+    margin-left:12px;
+}
+.review-nickname>span{
+    color:#717171;
+}
+.review-content{
+    line-height: 20px;
+}
