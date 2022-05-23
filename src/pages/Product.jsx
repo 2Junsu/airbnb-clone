@@ -3,8 +3,11 @@ import { Header } from "../components";
 import "../css/product.css";
 import notice from "../assets/imgs/notice.png";
 import superhost from "../assets/imgs/superhost.png";
+import { useNavigate } from "react-router-dom";
 
 const Product = () => {
+    const navigate = useNavigate();
+
     return (
         <div>
             <Header />
@@ -509,7 +512,11 @@ const Product = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <button className="observation-btn">
+                                    <button
+                                        className="observation-btn"
+                                        onClick={() => {
+                                            navigate("/book");
+                                        }}>
                                         <b>예약 가능 여부 보기</b>
                                     </button>
                                 </div>
