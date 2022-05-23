@@ -162,7 +162,7 @@ const Book = () => {
                     </div>
                 </div>
                 <div id="sticky-view-container">
-                    <div className="sticky-view">
+                    <div className="book-sticky-view">
                         <div className="sticky-info">
                             <img
                                 src="https://a0.muscache.com/im/pictures/df9094ca-e87e-40be-8881-c01ae8c591f7.jpg?aki_policy=large"
