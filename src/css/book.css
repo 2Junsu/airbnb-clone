@@ -1,0 +1,190 @@
+header{
+    display:flex;
+    align-items: center;
+    padding-left: 24px;
+    height:80px;
+    border-bottom: 1px solid #cccccc;
+}
+header >div:hover{
+    cursor: pointer;
+}
+
+h1,h2,h3{
+    margin:0px;
+}
+main{
+    margin:0px 10%;
+    margin-bottom: 64px;
+    padding:0px 80px;
+    display:flex;
+}
+.book-title{
+    display: flex;
+    align-items: center;
+    padding: 64px 0px;
+}
+.book-info{
+    border-bottom: 1px solid #cccccc;
+}
+.book-info >h2{
+    margin-bottom: 24px;
+}
+.book-info-element{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+.book-info-element>div>span{
+    margin-top:8px;
+}
+.edit{
+    all:unset;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 16px;
+}
+.edit:hover{cursor: pointer;}
+
+.login{
+    padding-top:32px;
+    padding-bottom: 24px;
+}
+.nation-btn{
+    all:unset;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:10px 12px;
+    height:40px;
+    border-bottom: 1px solid #cccccc;
+}
+.arrow{
+    font-size: 22px;
+    transform: rotate(90deg);
+}
+form{
+    border:1px solid #cccccc;
+    border-radius: 8px;
+}
+form input{
+    all:unset;
+    width: 100%;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    height:40px;
+}
+
+.login-notice{
+    margin-top: 8px;
+    font-size: 14px;
+}
+.login-notice>span{
+    font-weight: bold;
+    /* text-decoration: underline; */
+}
+.login-notice>span:hover{cursor: pointer;}
+.login-btn{
+    all:unset;
+    border-radius: 8px;
+    background-color: #ff0080;
+    padding:14px 0px;
+    width: 100%;
+    text-align: center;
+}
+.login-btn>span{
+    color:white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.social-login{
+    display:flex;
+    justify-content: space-between;
+}
+.social-login-element{
+    margin-bottom: 16px;
+    padding:13px 23px;
+    border:1px solid black;
+    border-radius: 8px;
+    display:flex;
+    flex:1;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.social-login-element:hover{
+    background-color: #efefef;
+    cursor: pointer;
+}
+
+footer{
+    padding:0px 80px;
+    background-color: #eeeeee;
+    border:1px solid #cccccc;
+}
+
+#sticky-view-container{
+    position: sticky;
+    padding:48px 0px;
+    top:48px;
+    margin-left: 5%;
+    width:45%;
+    height:fit-content;
+}
+.sticky-view{
+    border:1px solid #cccccc;
+    border-radius: 12px;
+    padding:24px;
+    margin-bottom: 88px;
+}
+.sticky-info{
+    display:flex;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #cccccc;
+}
+.sticky-info>img{
+    width:100px;
+    height:100px;
+    border-radius: 8px;
+}
+.sticky-info>div{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.sticky-house-name{
+    color:rgb(113, 113, 113);
+}
+.sticky-description{
+    margin-top: 4px;
+}
+.sticky-house-review{
+    display:flex;
+    align-items: center;
+    font-size: 14px;
+}
+.sticky-house-review span{
+    color:rgb(113, 113, 113);
+}
+
+.cost-container{
+    border-bottom: 1px solid #cccccc;
+}
+
+.cost-text{
+    padding:24px 0px;
+}
+.cost-info{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.total-cost{
+    padding-top:24px;
+    display:flex;
+    justify-content: space-between;
+}
+.total-cost span{text-decoration: underline;}

@@ -1,0 +1,108 @@
+header {
+    display:flex;
+    padding:0px 80px;
+    border-bottom:1px solid #cccccc;
+}
+
+header > a {
+    flex:1;
+    padding:24px 0px;
+    display:flex;
+    align-items: center;
+}
+
+header>a:hover{
+    cursor:pointer;
+}
+
+header > div {
+    flex:1;
+    padding:24px 0px;
+    display:flex;
+    align-items: center;
+}
+
+.header-center-container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    border:1px solid #cccccc;
+    border-radius:20px;
+    padding:8px;
+    white-space: nowrap;
+}
+
+header div > button {
+    display:flex;
+    align-items: center;
+    border:none;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+header div > button > div {
+    padding:0px 8px;
+}
+
+header div span {
+    border: .5px solid #cccccc;
+    height:20px;
+}
+
+nav {
+    display:flex;
+    align-items: center;
+}
+
+nav a div{
+    padding:12px;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 30px;
+}
+
+nav a div:hover{
+    background-color: #eeeeee;
+    cursor:pointer;
+}
+
+.nav-elem {
+    display:flex;
+    align-items: center;
+}
+.nav-lang{
+    padding:12px;
+    border-radius: 30px;
+}
+.nav-lang:hover{
+    background-color: #eeeeee;
+    cursor:pointer;
+}
+
+.nav-elem2{
+    display:flex;
+    align-items: center;
+    padding:12px;
+    border:1px solid #cccccc;
+    border-radius: 50px;
+}
+
+.nav-elem2:hover{
+    box-shadow: 0px 3px #cccccc;
+    cursor:pointer;
+}
+
+.nav-elem2 div {
+    margin:0px 6px;
+}
+
+.navbar{
+    display:flex;
+    justify-content: flex-end;
+}
