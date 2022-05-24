@@ -3,15 +3,29 @@ import "../css/header.css";
 import logo from "../assets/imgs/airbnb.png";
 import { Link } from "react-router-dom";
 import { SignupModal } from ".";
+import Modal from "./Modal";
 
 const Header = () => {
     const [openMemberInfo, setOpenMemberInfo] = useState(false);
     const [isSignupOpen, setIsSignupOpen] = useState(false);
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
 
     const memberRef = useRef();
 
     const openSignupModal = () => {
         setIsSignupOpen(true);
+    };
+
+    const openSearchModal = () => {
+        setIsSearchOpen(true);
+    };
+
+    const closeSignupModal = () => {
+        setIsSignupOpen(false);
+    };
+
+    const closeSearchModal = () => {
+        setIsSearchOpen(false);
     };
 
     return (
@@ -22,7 +36,7 @@ const Header = () => {
                 </Link>
             </div>
             <div className="header-center-container">
-                <div className="search">
+                <div className="search" onClick={openSearchModal}>
                     <button id="where">
                         <div>어디든지</div>
                     </button>
@@ -48,6 +62,10 @@ const Header = () => {
                                     stroke: "currentcolor",
                                     strokeWidth: "5.33333",
                                     overflow: "visible",
+                                    backgroundColor: "#ff385c",
+                                    padding: 8,
+                                    borderRadius: "50%",
+                                    color: "white",
                                 }}>
                                 <g fill="none">
                                     <path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path>
@@ -56,6 +74,13 @@ const Header = () => {
                         </div>
                     </button>
                 </div>
+                {/* <Modal
+                    modalStatus={isSearchOpen}
+                    closeModal={closeSearchModal}
+                    className="search-modal">
+                    <div>지역으로 검색하기</div>
+                    <button onClick={closeSearchModal}>close</button>
+                </Modal> */}
             </div>
             <div className="navbar">
                 <nav>
@@ -152,9 +177,7 @@ const Header = () => {
             </div>
             <SignupModal
                 modalStatus={isSignupOpen}
-                closeModal={() => {
-                    setIsSignupOpen(false);
-                }}
+                closeModal={closeSignupModal}
                 width={500}
             />
         </header>

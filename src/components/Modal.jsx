@@ -2,13 +2,14 @@ import React from "react";
 import ModalComponent from "react-modal";
 
 const Modal = (props) => {
-    const { children, width, modalStatus, closeModal } = props;
+    const { children, width, modalStatus, closeModal, className } = props;
 
     return (
         <ModalComponent
             id="modal"
             isOpen={modalStatus}
             onRequestClose={closeModal}
+            className={className}
             style={{
                 overlay: {
                     position: "fixed",
