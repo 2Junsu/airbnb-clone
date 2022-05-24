@@ -8,13 +8,13 @@ const LodgingCard = (props) => {
 
     return (
         <article
+            className="lodging-article"
             onClick={() => {
                 navigate(`/product/${id}`);
             }}>
-            <img
-                src="https://a0.muscache.com/im/pictures/ffea2065-5b15-4a33-88ce-eca502589521.jpg?im_w=720"
-                alt="img"
-            />
+            <div className="lodging-img-outer">
+                <div className="lodging-img-inner"></div>
+            </div>
             <div className="article-contents">
                 <strong>Gardone Riviera, 이탈리아</strong>
                 <span>디자인: David Chipperfield</span>

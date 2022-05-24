@@ -1,10 +1,23 @@
-article:hover{
+.lodging-article{
+    width:100%;
+}
+.lodging-article:hover{
     cursor: pointer;
 }
-article > img {   
+
+.lodging-img-outer{
+    width:100%;
+    min-width:150px;
+}
+
+.lodging-img-inner{
     width:100%;
     border-radius: 10px;
     margin-bottom: 12px;
+    position:relative;
+    padding-top: 100%;
+    overflow: hidden;
+    background-image: url("https://a0.muscache.com/im/pictures/ffea2065-5b15-4a33-88ce-eca502589521.jpg?im_w=720");
 }
 
 .article-contents {
