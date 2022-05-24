@@ -2,13 +2,25 @@ import React, { useState, useRef } from "react";
 import "../css/header.css";
 import logo from "../assets/imgs/airbnb.png";
 import { Link } from "react-router-dom";
+import { SignupModal } from ".";
 
 const Header = () => {
     const [openMemberInfo, setOpenMemberInfo] = useState(false);
+    const [isSignupOpen, setIsSignupOpen] = useState(false);
+    const [isLoginOpen, setIsLoginOpen] = useState(false);
+
     const memberRef = useRef();
 
+    const openSignupModal = () => {
+        setIsSignupOpen(true);
+    };
+
+    const openLoginModal = () => {
+        setIsLoginOpen(true);
+    };
+
     return (
-        <header>
+        <header id="header">
             <div className="header-left-container">
                 <Link to="/">
                     <img width="102px" height="32px" src={logo} alt="logo" />
@@ -124,10 +136,14 @@ const Header = () => {
                                         paddingBottom: 8,
                                         borderBottom: "1px solid #cccccc",
                                     }}>
-                                    <button style={{ fontWeight: "bold" }}>
+                                    <button
+                                        style={{ fontWeight: "bold" }}
+                                        onClick={openSignupModal}>
                                         회원 가입
                                     </button>
-                                    <button>로그인</button>
+                                    <button onClick={openLoginModal}>
+                                        로그인
+                                    </button>
                                 </div>
                                 <div style={{ paddingTop: 8 }}>
                                     <button>숙소 호스트 되기</button>
@@ -139,6 +155,13 @@ const Header = () => {
                     </div>
                 </nav>
             </div>
+            <SignupModal
+                modalStatus={isSignupOpen}
+                closeModal={() => {
+                    setIsSignupOpen(false);
+                }}
+                width={500}
+            />
         </header>
     );
 };

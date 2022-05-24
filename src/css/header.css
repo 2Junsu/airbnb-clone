@@ -1,4 +1,4 @@
-header {
+#header {
     display:flex;
     padding:0px 80px;
     border-bottom:1px solid #cccccc;
@@ -14,7 +14,7 @@ header {
     cursor:pointer;
 }
 
-header > div {
+#header > div {
     flex:1;
     padding:24px 0px;
     display:flex;
@@ -45,11 +45,11 @@ header > div {
     font-weight: 400;
 }
 
-header div > button > div {
+#header div > button > div {
     padding:0px 8px;
 }
 
-header div span {
+#header div span {
     border: .5px solid #cccccc;
     height:20px;
 }
