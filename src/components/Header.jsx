@@ -7,16 +7,11 @@ import { SignupModal } from ".";
 const Header = () => {
     const [openMemberInfo, setOpenMemberInfo] = useState(false);
     const [isSignupOpen, setIsSignupOpen] = useState(false);
-    const [isLoginOpen, setIsLoginOpen] = useState(false);
 
     const memberRef = useRef();
 
     const openSignupModal = () => {
         setIsSignupOpen(true);
-    };
-
-    const openLoginModal = () => {
-        setIsLoginOpen(true);
     };
 
     return (
@@ -141,7 +136,7 @@ const Header = () => {
                                         onClick={openSignupModal}>
                                         회원 가입
                                     </button>
-                                    <button onClick={openLoginModal}>
+                                    <button onClick={openSignupModal}>
                                         로그인
                                     </button>
                                 </div>
