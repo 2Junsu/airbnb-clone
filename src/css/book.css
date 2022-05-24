@@ -1,11 +1,11 @@
-header{
+#header{
     display:flex;
     align-items: center;
     padding-left: 24px;
     height:80px;
     border-bottom: 1px solid #cccccc;
 }
-header >div:hover{
+#header >div:hover{
     cursor: pointer;
 }
 

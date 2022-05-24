@@ -4,14 +4,13 @@ header {
     border-bottom:1px solid #cccccc;
 }
 
-header > a {
+.header-left-container {
     flex:1;
-    padding:24px 0px;
     display:flex;
     align-items: center;
 }
 
-header>a:hover{
+.header-left-container>img:hover{
     cursor:pointer;
 }
 
@@ -37,7 +36,7 @@ header > div {
     white-space: nowrap;
 }
 
-header div > button {
+#where, #when, #guest {
     display:flex;
     align-items: center;
     border:none;
@@ -60,14 +59,14 @@ nav {
     align-items: center;
 }
 
-nav a div{
+.host-btn{
     padding:12px;
     font-size: 16px;
     font-weight: 400;
     border-radius: 30px;
 }
 
-nav a div:hover{
+.host-btn:hover,.nav-lang:hover{
     background-color: #eeeeee;
     cursor:pointer;
 }
@@ -79,30 +78,52 @@ nav a div:hover{
 .nav-lang{
     padding:12px;
     border-radius: 30px;
-}
-.nav-lang:hover{
-    background-color: #eeeeee;
-    cursor:pointer;
+    margin-right: 8px;
 }
 
 .nav-elem2{
+    position: relative;
     display:flex;
     align-items: center;
-    padding:12px;
     border:1px solid #cccccc;
     border-radius: 50px;
+    padding:12px;
 }
 
 .nav-elem2:hover{
-    box-shadow: 0px 3px #cccccc;
+    box-shadow: 0px 3px 5px #cccccc;
     cursor:pointer;
 }
 
-.nav-elem2 div {
+.nav-elem2 >div {
     margin:0px 6px;
 }
 
 .navbar{
     display:flex;
     justify-content: flex-end;
+}
+
+.memberInfoContainer{
+    position: absolute;
+    top:60px;
+    right:0px;
+    width:250px;
+    background-color: white;
+    z-index: 1;
+    border-radius: 12px;
+    box-shadow: 0px -3px 10px #cccccc;
+    padding:8px 0px;
+}
+
+.memberInfoContainer>div{
+    display:flex;
+    flex-direction: column;
+}
+.memberInfoContainer>div>button{
+    all:unset;
+    padding: 16px;
+}
+.memberInfoContainer>div>button:hover{
+    background-color: #eeeeee;
 }

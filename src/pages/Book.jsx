@@ -6,7 +6,7 @@ import fb from "../assets/imgs/facebook.png";
 const Book = () => {
     return (
         <div>
-            <header>
+            <header id="header">
                 <div>
                     <img width="102px" height="32px" src={logo} alt="logo" />
                 </div>
