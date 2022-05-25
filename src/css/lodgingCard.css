@@ -17,7 +17,8 @@
     position:relative;
     padding-top: 100%;
     overflow: hidden;
-    background-image: url("https://a0.muscache.com/im/pictures/ffea2065-5b15-4a33-88ce-eca502589521.jpg?im_w=720");
+    background-size: cover;
+    background-image: url("https://a0.muscache.com/im/pictures/miso/Hosting-47771464/original/e8f6758f-1348-43f6-832a-066a90523068.jpeg?im_w=720");
 }
 
 .article-contents {
