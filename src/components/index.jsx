@@ -6,6 +6,7 @@ import Modal from "./Modal";
 import SignupModal from "./SignupModal";
 import Signup from "./Signup";
 import Carousel from "./Carousel";
+import Footer from "./Footer";
 export {
     LodgingCard,
     CategoryItem,
@@ -15,4 +16,5 @@ export {
     SignupModal,
     Signup,
     Carousel,
+    Footer,
 };

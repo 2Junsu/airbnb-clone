@@ -1,6 +1,7 @@
 import React from "react";
 import "../css/host.css";
 import { Link } from "react-router-dom";
+import { Footer } from "../components";
 
 const Host = () => {
     return (
@@ -235,6 +236,7 @@ const Host = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };

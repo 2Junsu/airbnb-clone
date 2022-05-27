@@ -1,0 +1,23 @@
+footer{
+    background-color: #eeeeee;
+    padding:0px 80px;
+}
+.footer-section{
+    display: flex;
+    justify-content: center;
+    padding:48px 0px;
+    border-bottom: 1px solid #cccccc;
+}
+
+footer section{
+    padding:0px 12px;
+    flex:1;
+}
+footer ul{
+    list-style-type: none;
+    padding:0px;
+}
+
+footer li{
+    margin-top:16px;
+}
