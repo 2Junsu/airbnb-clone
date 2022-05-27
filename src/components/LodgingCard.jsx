@@ -1,7 +1,13 @@
 import React from "react";
 import "../css/lodgingCard.css";
 import { useNavigate } from "react-router-dom";
+import { Carousel } from ".";
 
+const imgs = [
+    "https://a0.muscache.com/im/pictures/miso/Hosting-47771464/original/e8f6758f-1348-43f6-832a-066a90523068.jpeg?im_w=720",
+    "https://a0.muscache.com/im/pictures/miso/Hosting-47771464/original/e8f6758f-1348-43f6-832a-066a90523068.jpeg?im_w=720",
+    "https://a0.muscache.com/im/pictures/miso/Hosting-47771464/original/e8f6758f-1348-43f6-832a-066a90523068.jpeg?im_w=720",
+];
 const LodgingCard = (props) => {
     const { id } = props;
     const navigate = useNavigate();
@@ -9,33 +15,11 @@ const LodgingCard = (props) => {
     return (
         <article
             className="lodging-article"
-            onClick={() => {
-                navigate(`/product/${id}`);
-            }}>
-            <div className="lodging-img-outer">
-                <div className="lodging-img-inner">
-                    <svg
-                        viewBox="0 0 32 32"
-                        xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true"
-                        role="presentation"
-                        focusable="false"
-                        style={{
-                            display: "block",
-                            fill: "rgba(0, 0, 0, 0.5)",
-                            height: 24,
-                            width: 24,
-                            strokeWidth: 2,
-                            stroke: "white",
-                            overflow: "visible",
-                            position: "absolute",
-                            top: 16,
-                            right: 16,
-                        }}>
-                        <path d="m16 28c7-4.733 14-10 14-17 0-1.792-.683-3.583-2.05-4.95-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05l-2.051 2.051-2.05-2.051c-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05-1.367 1.367-2.051 3.158-2.051 4.95 0 7 7 12.267 14 17z"></path>
-                    </svg>
-                </div>
-            </div>
+            // onClick={() => {
+            //     navigate(`/product/${id}`);
+            // }}>
+        >
+            <Carousel images={imgs} />
             <div className="article-contents">
                 <strong>Gardone Riviera, 이탈리아</strong>
                 <span>디자인: David Chipperfield</span>

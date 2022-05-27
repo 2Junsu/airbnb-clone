@@ -5,6 +5,7 @@ import Review from "./Review";
 import Modal from "./Modal";
 import SignupModal from "./SignupModal";
 import Signup from "./Signup";
+import Carousel from "./Carousel";
 export {
     LodgingCard,
     CategoryItem,
@@ -13,4 +14,5 @@ export {
     Modal,
     SignupModal,
     Signup,
+    Carousel,
 };
