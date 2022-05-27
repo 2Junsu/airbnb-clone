@@ -1,5 +1,5 @@
 import React from "react";
-import { Main, Product, Book } from "./pages";
+import { Main, Product, Book, Host } from "./pages";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 const App = () => {
     return (
@@ -8,6 +8,7 @@ const App = () => {
                 <Route path="/" element={<Main />} />
                 <Route path="/product/:id" element={<Product />} />
                 <Route path="/book" element={<Book />} />
+                <Route path="/host" element={<Host />} />
             </Routes>
         </BrowserRouter>
     );

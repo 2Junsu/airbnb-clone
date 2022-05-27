@@ -85,7 +85,14 @@ const Header = () => {
             <div className="navbar">
                 <nav>
                     <div className="nav-elem">
-                        <div className="host-btn">호스트 되기</div>
+                        <Link
+                            to="/host"
+                            style={{
+                                textDecoration: "none",
+                                color: "inherit",
+                            }}>
+                            <div className="host-btn">호스트 되기</div>
+                        </Link>
                         <div className="nav-lang">
                             <svg
                                 viewBox="0 0 16 16"
