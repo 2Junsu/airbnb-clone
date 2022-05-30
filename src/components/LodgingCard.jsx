@@ -8,6 +8,14 @@ const imgs = [
     "https://a0.muscache.com/im/pictures/miso/Hosting-47771464/original/e8f6758f-1348-43f6-832a-066a90523068.jpeg?im_w=720",
     "https://a0.muscache.com/im/pictures/miso/Hosting-47771464/original/e8f6758f-1348-43f6-832a-066a90523068.jpeg?im_w=720",
 ];
+
+const lodgingData = {
+    title: "Gardone Riviera, 이탈리아",
+    summary: "디자인: David Chipperfield",
+    date: "8월 1일~6일",
+    price: "₩325,527/박",
+};
+
 const LodgingCard = (props) => {
     const { id } = props;
     const navigate = useNavigate();
@@ -18,13 +26,15 @@ const LodgingCard = (props) => {
             <div
                 style={{ paddingTop: 12 }}
                 onClick={() => {
-                    navigate(`/product/${id}`);
+                    navigate(`/product/${id}`, {
+                        state: lodgingData,
+                    });
                 }}>
                 <div className="article-contents">
-                    <strong>Gardone Riviera, 이탈리아</strong>
-                    <span>디자인: David Chipperfield</span>
-                    <span>8월 1일~6일</span>
-                    <strong>₩325,527/박</strong>
+                    <strong>{lodgingData.title}</strong>
+                    <span>{lodgingData.summary}</span>
+                    <span>{lodgingData.date}</span>
+                    <strong>{lodgingData.price}</strong>
                     <div className="rate">
                         <span>4.91</span>&nbsp;
                         <svg

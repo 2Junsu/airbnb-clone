@@ -3,18 +3,18 @@ import { Header, Review, Footer } from "../components";
 import "../css/product.css";
 import notice from "../assets/imgs/notice.png";
 import superhost from "../assets/imgs/superhost.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Product = () => {
     const navigate = useNavigate();
-
+    const state = useLocation().state;
     return (
         <div>
             <Header />
             <main>
                 <div className="product-container">
                     <div>
-                        <strong className="title">라이트 하우스</strong>
+                        <strong className="title">{state.title}</strong>
                         <div className="under-title">
                             <div className="tag">
                                 <span>Vestervig</span>,&nbsp;
