@@ -1,9 +1,8 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "../css/header.css";
 import logo from "../assets/imgs/airbnb.png";
 import { Link } from "react-router-dom";
 import { SignupModal } from ".";
-import Modal from "./Modal";
 
 const Header = () => {
     const [openMemberInfo, setOpenMemberInfo] = useState(false);
@@ -11,6 +10,7 @@ const Header = () => {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
 
     const memberRef = useRef();
+    const memberModalRef = useRef();
 
     const openSignupModal = () => {
         setIsSignupOpen(true);
@@ -27,6 +27,23 @@ const Header = () => {
     const closeSearchModal = () => {
         setIsSearchOpen(false);
     };
+
+    const closeMember = (e) => {
+        if (
+            openMemberInfo &&
+            !memberModalRef.current.contains(e.target) &&
+            !memberRef.current.contains(e.target)
+        )
+            setOpenMemberInfo(false);
+    };
+
+    useEffect(() => {
+        window.addEventListener("click", closeMember);
+
+        return () => {
+            window.removeEventListener("click", closeMember);
+        };
+    });
 
     return (
         <header id="header">
@@ -111,6 +128,7 @@ const Header = () => {
                         </div>
                     </div>
                     <div
+                        ref={memberRef}
                         className="nav-elem2"
                         onClick={() => {
                             setOpenMemberInfo(!openMemberInfo);
@@ -157,7 +175,7 @@ const Header = () => {
                         {openMemberInfo && (
                             <div
                                 className="memberInfoContainer"
-                                ref={memberRef}>
+                                ref={memberModalRef}>
                                 <div
                                     style={{
                                         paddingBottom: 8,
