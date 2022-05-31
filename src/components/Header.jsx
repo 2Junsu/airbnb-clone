@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
-import "../css/header.css";
 import logo from "../assets/imgs/airbnb.png";
 import { Link } from "react-router-dom";
 import { SignupModal } from ".";
+import styled from "styled-components";
 
 const Header = () => {
     const [openMemberInfo, setOpenMemberInfo] = useState(false);
@@ -12,20 +12,12 @@ const Header = () => {
     const memberRef = useRef();
     const memberModalRef = useRef();
 
-    const openSignupModal = () => {
-        setIsSignupOpen(true);
+    const HandleSignupModal = () => {
+        setIsSignupOpen(!isSignupOpen);
     };
 
-    const openSearchModal = () => {
-        setIsSearchOpen(true);
-    };
-
-    const closeSignupModal = () => {
-        setIsSignupOpen(false);
-    };
-
-    const closeSearchModal = () => {
-        setIsSearchOpen(false);
+    const HandleSearchModal = () => {
+        setIsSearchOpen(!isSearchOpen);
     };
 
     const closeMember = (e) => {
@@ -46,62 +38,59 @@ const Header = () => {
     });
 
     return (
-        <header id="header">
-            <div className="header-left-container">
+        <HeaderWrap>
+            <HeaderLeftContainer>
                 <Link to="/">
                     <img width="102px" height="32px" src={logo} alt="logo" />
                 </Link>
-            </div>
-            <div className="header-center-container">
-                <div className="search" onClick={openSearchModal}>
-                    <button id="where">
-                        <div>어디든지</div>
-                    </button>
-                    <span></span>
-                    <button id="when">
-                        <div>언제든 일주일</div>
-                    </button>
-                    <span></span>
-                    <button id="guest">
-                        <div>게스트 추가</div>
-                        <div>
-                            <svg
-                                viewBox="0 0 32 32"
-                                xmlns="http://www.w3.org/2000/svg"
-                                aria-hidden="true"
-                                role="presentation"
-                                focusable="false"
-                                style={{
-                                    display: "block",
-                                    fill: "none",
-                                    height: 12,
-                                    width: 12,
-                                    stroke: "currentcolor",
-                                    strokeWidth: "5.33333",
-                                    overflow: "visible",
-                                    backgroundColor: "#ff385c",
-                                    padding: 8,
-                                    borderRadius: "50%",
-                                    color: "white",
-                                }}>
-                                <g fill="none">
-                                    <path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path>
-                                </g>
-                            </svg>
-                        </div>
-                    </button>
-                </div>
-                {/* <Modal
-                    modalStatus={isSearchOpen}
-                    closeModal={closeSearchModal}
-                    className="search-modal">
-                    <div>지역으로 검색하기</div>
-                    <button onClick={closeSearchModal}>close</button>
-                </Modal> */}
-            </div>
-            <div className="navbar">
-                <nav>
-                    <div className="nav-elem">
+            </HeaderLeftContainer>
+            <HeaderCenterContainer>
+                {isSearchOpen ? (
+                    <div>ddd</div>
+                ) : (
+                    <Search onClick={HandleSearchModal}>
+                        <WhereBtn>
+                            <div>어디든지</div>
+                        </WhereBtn>
+                        <span></span>
+                        <WhenBtn>
+                            <div>언제든 일주일</div>
+                        </WhenBtn>
+                        <span></span>
+                        <GuestBtn>
+                            <div>게스트 추가</div>
+                            <div>
+                                <svg
+                                    viewBox="0 0 32 32"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                    role="presentation"
+                                    focusable="false"
+                                    style={{
+                                        display: "block",
+                                        fill: "none",
+                                        height: 12,
+                                        width: 12,
+                                        stroke: "currentcolor",
+                                        strokeWidth: "5.33333",
+                                        overflow: "visible",
+                                        backgroundColor: "#ff385c",
+                                        padding: 8,
+                                        borderRadius: "50%",
+                                        color: "white",
+                                    }}>
+                                    <g fill="none">
+                                        <path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                        </GuestBtn>
+                    </Search>
+                )}
+            </HeaderCenterContainer>
+            <NavbarWrap>
+                <Navbar>
+                    <NavElem>
                         <Link
                             to="/host"
                             style={{
@@ -110,7 +99,7 @@ const Header = () => {
                             }}>
                             <div className="host-btn">호스트 되기</div>
                         </Link>
-                        <div className="nav-lang">
+                        <NavLang>
                             <svg
                                 viewBox="0 0 16 16"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -125,11 +114,10 @@ const Header = () => {
                                 }}>
                                 <path d="m8.002.25a7.77 7.77 0 0 1 7.748 7.776 7.75 7.75 0 0 1 -7.521 7.72l-.246.004a7.75 7.75 0 0 1 -7.73-7.513l-.003-.245a7.75 7.75 0 0 1 7.752-7.742zm1.949 8.5h-3.903c.155 2.897 1.176 5.343 1.886 5.493l.068.007c.68-.002 1.72-2.365 1.932-5.23zm4.255 0h-2.752c-.091 1.96-.53 3.783-1.188 5.076a6.257 6.257 0 0 0 3.905-4.829zm-9.661 0h-2.75a6.257 6.257 0 0 0 3.934 5.075c-.615-1.208-1.036-2.875-1.162-4.686l-.022-.39zm1.188-6.576-.115.046a6.257 6.257 0 0 0 -3.823 5.03h2.75c.085-1.83.471-3.54 1.059-4.81zm2.262-.424c-.702.002-1.784 2.512-1.947 5.5h3.904c-.156-2.903-1.178-5.343-1.892-5.494l-.065-.007zm2.28.432.023.05c.643 1.288 1.069 3.084 1.157 5.018h2.748a6.275 6.275 0 0 0 -3.929-5.068z"></path>
                             </svg>
-                        </div>
-                    </div>
-                    <div
+                        </NavLang>
+                    </NavElem>
+                    <NavElem2
                         ref={memberRef}
-                        className="nav-elem2"
                         onClick={() => {
                             setOpenMemberInfo(!openMemberInfo);
                         }}>
@@ -173,9 +161,7 @@ const Header = () => {
                             </svg>
                         </div>
                         {openMemberInfo && (
-                            <div
-                                className="memberInfoContainer"
-                                ref={memberModalRef}>
+                            <MemberInfoContainer ref={memberModalRef}>
                                 <div
                                     style={{
                                         paddingBottom: 8,
@@ -183,10 +169,10 @@ const Header = () => {
                                     }}>
                                     <button
                                         style={{ fontWeight: "bold" }}
-                                        onClick={openSignupModal}>
+                                        onClick={HandleSignupModal}>
                                         회원 가입
                                     </button>
-                                    <button onClick={openSignupModal}>
+                                    <button onClick={HandleSignupModal}>
                                         로그인
                                     </button>
                                 </div>
@@ -195,18 +181,144 @@ const Header = () => {
                                     <button>체험 호스팅하기</button>
                                     <button>도움말</button>
                                 </div>
-                            </div>
+                            </MemberInfoContainer>
                         )}
-                    </div>
-                </nav>
-            </div>
+                    </NavElem2>
+                </Navbar>
+            </NavbarWrap>
             <SignupModal
                 modalStatus={isSignupOpen}
-                closeModal={closeSignupModal}
+                closeModal={HandleSignupModal}
                 width={500}
             />
-        </header>
+        </HeaderWrap>
     );
 };
 
+const HeaderWrap = styled.header`
+    display: flex;
+    padding: 0px 80px;
+    border-bottom: 1px solid #cccccc;
+    & > div {
+        flex: 1;
+        padding: 24px 0px;
+        display: flex;
+        align-items: center;
+    }
+    & div > button > div {
+        padding: 0px 8px;
+    }
+    & div span {
+        border: 0.5px solid #cccccc;
+        height: 20px;
+    }
+`;
+const HeaderLeftContainer = styled.div`
+    flex: 1;
+    display: flex;
+    align-items: center;
+    & > img:hover {
+        cursor: pointer;
+    }
+`;
+const HeaderCenterContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+const Search = styled.div`
+    display: flex;
+    align-items: center;
+    border: 1px solid #cccccc;
+    border-radius: 40px;
+    padding: 0px 8px;
+    white-space: nowrap;
+    height: 48px;
+    position: relative;
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0px 3px 10px #cccccc;
+    }
+`;
+const WhereBtn = styled.button`
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: 400;
+`;
+const WhenBtn = styled(WhereBtn)``;
+const GuestBtn = styled(WhereBtn)`
+    color: rgb(113, 113, 113);
+`;
+const NavbarWrap = styled.div`
+    display: flex;
+    justify-content: flex-end;
+`;
+const Navbar = styled.nav`
+    display: flex;
+    align-items: center;
+`;
+const NavElem = styled.div`
+    display: flex;
+    align-items: center;
+`;
+const HostBtn = styled.div`
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 30px;
+    &:hover {
+        background-color: #eeeeee;
+        cursor: pointer;
+    }
+`;
+const NavLang = styled.div`
+    padding: 12px;
+    border-radius: 30px;
+    margin-right: 8px;
+    &:hover {
+        background-color: #eeeeee;
+        cursor: pointer;
+    }
+`;
+const NavElem2 = styled.div`
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid #cccccc;
+    border-radius: 50px;
+    padding: 12px;
+    &:hover {
+        box-shadow: 0px 3px 5px #cccccc;
+        cursor: pointer;
+    }
+
+    & > div {
+        margin: 0px 6px;
+    }
+`;
+const MemberInfoContainer = styled.div`
+    position: absolute;
+    top: 60px;
+    right: 0px;
+    width: 250px;
+    background-color: white;
+    z-index: 1;
+    border-radius: 12px;
+    box-shadow: 0px -3px 10px #cccccc;
+    padding: 8px 0px;
+    & > div {
+        display: flex;
+        flex-direction: column;
+    }
+    & > div > button {
+        all: unset;
+        padding: 16px;
+    }
+    & > div > button:hover {
+        background-color: #eeeeee;
+    }
+`;
 export default Header;
