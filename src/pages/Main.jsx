@@ -47,39 +47,6 @@ const Main = () => {
 
     return (
         <div>
-            <div className="header-notice">
-                <div className="header-notice-text">
-                    새로워진 에어비앤비를 소개합니다
-                </div>
-                <div className="header-notice-btns-container">
-                    <button className="header-notice-btn">
-                        <span
-                            style={{
-                                display: "flex",
-                                alignItems: "center",
-                                fontSize: 15,
-                            }}>
-                            <img
-                                style={{ borderRadius: 8, marginRight: 12 }}
-                                width="50px"
-                                height="30px"
-                                src="https://a0.muscache.com/im/pictures/286f3ac7-a344-45da-91ee-77caf6b1be66.jpg?im_q=highq&im_w=240"
-                                alt="video"
-                            />
-                            동영상 보기
-                        </span>
-                    </button>
-                    <div
-                        style={{
-                            height: 30,
-                            border: "0.5px solid #cccccc",
-                            margin: "0px 8px",
-                        }}></div>
-                    <button className="header-notice-btn">
-                        자세히 알아보기
-                    </button>
-                </div>
-            </div>
             <Header />
             <div id="category-container">
                 <div id="category">
