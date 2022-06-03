@@ -218,60 +218,73 @@ const Header = () => {
             </HeaderWrap>
             {isSearchOpen && (
                 <SearchDetailBarWrap>
-                    <SearchDetailBar>
-                        <SearchDetailElement style={{ padding: "0px 8px" }}>
-                            <SearchDetailElementInner>
-                                <div>
-                                    <span>여행지</span>
-                                    <input placeholder="여행지 검색" />
-                                </div>
-                            </SearchDetailElementInner>
-                        </SearchDetailElement>
-                        <SearchDetailElement
-                            style={{ borderLeft: "1px solid #cccccc" }}>
-                            <SearchDetailElementInner>
-                                <div>
-                                    <span>날짜</span>
-                                    <span>의 일주일</span>
-                                </div>
-                            </SearchDetailElementInner>
-                        </SearchDetailElement>
-                        <SearchDetailElement>
-                            <SearchDetailElementInner>
-                                <div
-                                    style={{ borderLeft: "1px solid #cccccc" }}>
-                                    <span>여행자</span>
-                                    <span>게스트 추가</span>
-                                </div>
-                            </SearchDetailElementInner>
-                        </SearchDetailElement>
-                        <SearchDetailBtnWrap>
-                            <SearchDetailBtn>
-                                <svg
-                                    viewBox="0 0 32 32"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    aria-hidden="true"
-                                    role="presentation"
-                                    focusable="false"
-                                    style={{
-                                        display: "block",
-                                        fill: "none",
-                                        height: 16,
-                                        width: 16,
-                                        stroke: "currentcolor",
-                                        strokeWidth: "5.33333",
-                                        overflow: "visible",
-                                        padding: 8,
-                                        borderRadius: "50%",
-                                        color: "white",
-                                    }}>
-                                    <g fill="none">
-                                        <path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path>
-                                    </g>
-                                </svg>
-                            </SearchDetailBtn>
-                        </SearchDetailBtnWrap>
-                    </SearchDetailBar>
+                    <SearchDetailView>
+                        <SearchDetailBar>
+                            <SearchDetailElement>
+                                <SearchDetailElementInner>
+                                    <div>
+                                        <span>여행지</span>
+                                        <input placeholder="여행지 검색" />
+                                    </div>
+                                </SearchDetailElementInner>
+                            </SearchDetailElement>
+                            <SearchDetailElement
+                                style={{
+                                    width: 300,
+                                }}>
+                                <SearchDetailElementInner>
+                                    <div
+                                        style={{
+                                            borderLeft: "1px solid #cccccc",
+                                        }}>
+                                        <span>날짜</span>
+                                        <span>의 일주일</span>
+                                    </div>
+                                </SearchDetailElementInner>
+                            </SearchDetailElement>
+                            <SearchDetailElement>
+                                <SearchDetailElementInner>
+                                    <div
+                                        style={{
+                                            borderLeft: "1px solid #cccccc",
+                                        }}>
+                                        <span>여행자</span>
+                                        <span>게스트 추가</span>
+                                    </div>
+                                    <SearchDetailBtnWrap>
+                                        <SearchDetailBtn>
+                                            <svg
+                                                viewBox="0 0 32 32"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                aria-hidden="true"
+                                                role="presentation"
+                                                focusable="false"
+                                                style={{
+                                                    display: "block",
+                                                    fill: "none",
+                                                    height: 16,
+                                                    width: 16,
+                                                    stroke: "currentcolor",
+                                                    strokeWidth: "5.33333",
+                                                    overflow: "visible",
+                                                    padding: 8,
+                                                    borderRadius: "50%",
+                                                    color: "white",
+                                                }}>
+                                                <g fill="none">
+                                                    <path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path>
+                                                </g>
+                                            </svg>
+                                        </SearchDetailBtn>
+                                    </SearchDetailBtnWrap>
+                                </SearchDetailElementInner>
+                            </SearchDetailElement>
+                        </SearchDetailBar>
+                    </SearchDetailView>
+                    <Overlay
+                        onClick={() => {
+                            setIsSearchOpen(false);
+                        }}></Overlay>
                 </SearchDetailBarWrap>
             )}
         </>
@@ -361,15 +374,22 @@ const TypeBtn = styled.button`
     }
 `;
 const SearchDetailBarWrap = styled.div`
-    padding: 20px 0px;
     z-index: 1;
     position: absolute;
     top: 84px;
     width: 100%;
+    height: 100%;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: center;
-    background-color: #fff;
+`;
+const SearchDetailView = styled.div`
+    padding: 20px 0px;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
 `;
 const SearchDetailBar = styled.div`
     display: flex;
@@ -381,13 +401,17 @@ const SearchDetailElement = styled.div`
     font-size: 14px;
     display: flex;
     align-items: center;
-    margin: 14px 0px;
 `;
 const SearchDetailElementInner = styled.div`
+    display: flex;
+    align-items: center;
     width: 100%;
-    border-radius: 32px;
+    height: 48px;
+    border-radius: 36px;
+    padding: 14px 0px;
     &:hover {
         cursor: pointer;
+        background-color: white;
         filter: brightness(90%);
     }
     & > div {
@@ -400,25 +424,36 @@ const SearchDetailElementInner = styled.div`
     }
     & > div > input {
         border: none;
+        background-color: transparent;
+        &:focus {
+            outline: none;
+        }
         &::placeholder {
             font-size: 16px;
         }
     }
 `;
 const SearchDetailBtnWrap = styled.div`
-    padding-right: 9px;
+    /* padding-right: 9px; */
+    position: relative;
 `;
 const SearchDetailBtn = styled.button`
     all: unset;
     display: flex;
     align-items: center;
-    padding: 8px;
     background-color: #ff385c;
     border-radius: 50%;
+    padding: 8px;
     &:hover {
         cursor: pointer;
         filter: brightness(90%);
     }
+`;
+const Overlay = styled.div`
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.3;
 `;
 const WhereBtn = styled.button`
     display: flex;
@@ -427,6 +462,9 @@ const WhereBtn = styled.button`
     background-color: transparent;
     font-size: 16px;
     font-weight: 400;
+    &:hover {
+        cursor: pointer;
+    }
 `;
 const WhenBtn = styled(WhereBtn)``;
 const GuestBtn = styled(WhereBtn)`
