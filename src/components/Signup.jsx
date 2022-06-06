@@ -1,12 +1,21 @@
 import React, { useState } from "react";
 import fb from "../assets/imgs/facebook.png";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { handleEmailValid } from "../redux/reducer/signup";
 
 const Signup = () => {
     const [loginMethod, setLoginMethod] = useState("phone");
+    const dispatch = useDispatch();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(handleEmailValid(true));
+    };
+
     return (
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 {loginMethod === "phone" ? (
                     <>
                         <FormInput>

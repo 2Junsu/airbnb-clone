@@ -3,17 +3,21 @@ import logo from "../assets/imgs/airbnb.png";
 import { Link } from "react-router-dom";
 import { SignupModal } from ".";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { handleEmailValid } from "../redux/reducer/signup";
 
 const Header = () => {
     const [openMemberInfo, setOpenMemberInfo] = useState(false);
     const [isSignupOpen, setIsSignupOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
 
+    const dispatch = useDispatch();
     const memberRef = useRef();
     const memberModalRef = useRef();
 
     const HandleSignupModal = () => {
         setIsSignupOpen(!isSignupOpen);
+        dispatch(handleEmailValid(false));
     };
 
     const HandleSearchModal = () => {
