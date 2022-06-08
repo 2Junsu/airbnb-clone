@@ -1,17 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { saveUserInfo, handleEmailValid } from "../redux/reducer/signup";
 
-const SignupDetail = () => {
+const SignupDetail = (props) => {
+    const { closeModal } = props;
+    const dispatch = useDispatch();
     const email = useSelector((state) => state.signup.email);
+
+    const [form, setForm] = useState({
+        firstName: "",
+        lastName: "",
+        birth: "",
+        email,
+        agreeMarketing: true,
+    });
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        dispatch(saveUserInfo(form));
+        closeModal();
+    };
+
+    const handleUserInfo = (e) => {
+        const changed = {
+            ...form,
+            [e.target.name]: e.target.value,
+        };
+        setForm(changed);
     };
 
     return (
         <div style={{ width: "100%" }}>
-            <BackBtn>
+            <BackBtn
+                onClick={() => {
+                    dispatch(handleEmailValid(false));
+                }}>
                 <svg
                     viewBox="0 0 32 32"
                     xmlns="http://www.w3.org/2000/svg"
@@ -42,11 +66,20 @@ const SignupDetail = () => {
                             <div style={{ borderBottom: "1px solid #cccccc" }}>
                                 <input
                                     type="text"
+                                    name="firstName"
                                     placeholder="이름(예: 길동)"
+                                    onChange={handleUserInfo}
+                                    required
                                 />
                             </div>
                             <div>
-                                <input type="text" placeholder="성(예: 홍)" />
+                                <input
+                                    type="text"
+                                    name="lastName"
+                                    placeholder="성(예: 홍)"
+                                    onChange={handleUserInfo}
+                                    required
+                                />
                             </div>
                         </div>
                         <NoticeWrap>
@@ -56,7 +89,13 @@ const SignupDetail = () => {
                     </NameInputWrap>
                     <BirthInputWrap>
                         <div>
-                            <input type="date" placeholder="생년월일" />
+                            <input
+                                type="date"
+                                name="birth"
+                                placeholder="생년월일"
+                                onChange={handleUserInfo}
+                                required
+                            />
                         </div>
                         <NoticeWrap>
                             만 18세 이상의 성인만 회원으로 가입할 수 있습니다.
@@ -68,7 +107,8 @@ const SignupDetail = () => {
                             <input
                                 type="email"
                                 placeholder="이메일"
-                                value={email}
+                                defaultValue={email}
+                                required
                             />
                         </div>
                         <NoticeWrap>
@@ -77,7 +117,11 @@ const SignupDetail = () => {
                     </EmailInputWrap>
                     <PasswordInputWrap>
                         <div>
-                            <input type="password" placeholder="비밀번호" />
+                            <input
+                                type="password"
+                                placeholder="비밀번호"
+                                required
+                            />
                             <button>표시</button>
                         </div>
                     </PasswordInputWrap>
@@ -110,7 +154,16 @@ const SignupDetail = () => {
                         </span>
                     </NoticeWrap>
                     <CheckboxWrap>
-                        <input type="checkbox" id="checkbox" />
+                        <input
+                            type="checkbox"
+                            id="checkbox"
+                            onChange={(e) => {
+                                setForm({
+                                    ...form,
+                                    agreeMarketing: !e.target.checked,
+                                });
+                            }}
+                        />
                         <label htmlFor="checkbox">
                             에어비앤비에서 보내는 마케팅 메시지를 받고 싶지
                             않습니다.

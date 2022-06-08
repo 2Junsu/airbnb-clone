@@ -10,7 +10,7 @@ const SignupModal = (props) => {
     return (
         <Modal modalStatus={modalStatus} closeModal={closeModal} width={width}>
             {isEmailValid ? (
-                <SignupDetail />
+                <SignupDetail closeModal={closeModal} />
             ) : (
                 <div style={{ width: "100%" }}>
                     <div className="x-btn" onClick={closeModal}>

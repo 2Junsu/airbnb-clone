@@ -5,6 +5,7 @@ const signupReducer = createSlice({
     initialState: {
         isEmailValid: false,
         email: "",
+        userInfo: {},
     },
     reducers: {
         handleEmailValid: (state, action) => ({
@@ -12,8 +13,13 @@ const signupReducer = createSlice({
             isEmailValid: action.payload,
         }),
         updateEmail: (state, action) => ({ ...state, email: action.payload }),
+        saveUserInfo: (state, action) => ({
+            ...state,
+            userInfo: action.payload,
+        }),
     },
 });
 
-export const { handleEmailValid, updateEmail } = signupReducer.actions;
+export const { handleEmailValid, updateEmail, saveUserInfo } =
+    signupReducer.actions;
 export default signupReducer;
