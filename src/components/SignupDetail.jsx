@@ -1,7 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
 const SignupDetail = () => {
+    const email = useSelector((state) => state.signup.email);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    };
+
     return (
         <div style={{ width: "100%" }}>
             <BackBtn>
@@ -29,7 +36,7 @@ const SignupDetail = () => {
                 <h1>회원 가입 완료하기</h1>
             </Header>
             <Main>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <NameInputWrap>
                         <div>
                             <div style={{ borderBottom: "1px solid #cccccc" }}>
@@ -58,7 +65,11 @@ const SignupDetail = () => {
                     </BirthInputWrap>
                     <EmailInputWrap>
                         <div>
-                            <input type="email" placeholder="이메일" />
+                            <input
+                                type="email"
+                                placeholder="이메일"
+                                value={email}
+                            />
                         </div>
                         <NoticeWrap>
                             예약 확인과 영수증을 이메일로 보내드립니다.
@@ -79,7 +90,7 @@ const SignupDetail = () => {
                         </span>
                     </NoticeWrap>
                     <ButtonWrap>
-                        <Button>
+                        <Button type="submit">
                             <span>동의 및 계속하기</span>
                         </Button>
                     </ButtonWrap>

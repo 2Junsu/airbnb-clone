@@ -2,15 +2,21 @@ import React, { useState } from "react";
 import fb from "../assets/imgs/facebook.png";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
-import { handleEmailValid } from "../redux/reducer/signup";
+import { handleEmailValid, updateEmail } from "../redux/reducer/signup";
 
 const Signup = () => {
     const [loginMethod, setLoginMethod] = useState("phone");
+    const [email, setEmail] = useState("");
     const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(handleEmailValid(true));
+        dispatch(updateEmail(email));
+    };
+
+    const handleEmail = (e) => {
+        setEmail(e.target.value);
     };
 
     return (
@@ -41,7 +47,11 @@ const Signup = () => {
                     </>
                 ) : (
                     <FormInput style={{ padding: "10px 12px" }}>
-                        <input type="email" placeholder="이메일" />
+                        <input
+                            type="email"
+                            placeholder="이메일"
+                            onChange={handleEmail}
+                        />
                     </FormInput>
                 )}
                 <div style={{ marginTop: 24 }}>
