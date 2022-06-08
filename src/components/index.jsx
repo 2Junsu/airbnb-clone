@@ -1,6 +1,7 @@
 import LodgingCard from "./LodgingCard";
 import CategoryItem from "./CategoryItem";
 import Header from "./Header";
+import SimpleHeader from "./SimpleHeader";
 import Review from "./Review";
 import Modal from "./Modal";
 import SignupModal from "./SignupModal";
@@ -15,6 +16,7 @@ export {
     LodgingCard,
     CategoryItem,
     Header,
+    SimpleHeader,
     Review,
     Modal,
     SignupModal,

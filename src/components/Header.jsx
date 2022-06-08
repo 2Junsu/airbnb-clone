@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import logo from "../assets/imgs/airbnb.png";
+import simpleLogo from "../assets/imgs/airbnbSimple.png";
 import { Link } from "react-router-dom";
 import { SignupModal, SignupNoticeModal } from ".";
 import styled from "styled-components";
@@ -50,9 +51,15 @@ const Header = () => {
                 <HeaderLeftContainer>
                     <Link to="/">
                         <img
+                            src={logo}
                             width="102px"
                             height="32px"
-                            src={logo}
+                            alt="logo"
+                        />
+                        <img
+                            src={simpleLogo}
+                            width="32px"
+                            height="32px"
                             alt="logo"
                         />
                     </Link>
@@ -309,12 +316,13 @@ const HeaderWrap = styled.header`
     display: flex;
     padding: 0px 80px;
     border-bottom: 1px solid #cccccc;
-    & > div {
-        flex: 1;
-        padding: 24px 0px;
-        display: flex;
-        align-items: center;
+    @media only screen and (max-width: 1127px) {
+        padding: 0px 40px;
     }
+    @media only screen and (max-width: 743px) {
+        display: none;
+    }
+
     & div > button > div {
         padding: 0px 8px;
     }
@@ -327,11 +335,35 @@ const HeaderLeftContainer = styled.div`
     flex: 1;
     display: flex;
     align-items: center;
-    & > img:hover {
-        cursor: pointer;
+    padding: 24px 0px;
+
+    @media only screen and (max-width: 949px) {
+        flex: 0;
+    }
+
+    & img:nth-child(1) {
+        &:hover {
+            cursor: pointer;
+        }
+
+        @media only screen and (max-width: 1127px) {
+            display: none;
+        }
+    }
+
+    & img:nth-child(2) {
+        &:hover {
+            cursor: pointer;
+        }
+
+        @media only screen and (min-width: 1127px) {
+            display: none;
+        }
     }
 `;
 const HeaderCenterContainer = styled.div`
+    flex: 1;
+    padding: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -485,8 +517,11 @@ const GuestBtn = styled(WhereBtn)`
     color: rgb(113, 113, 113);
 `;
 const NavbarWrap = styled.div`
+    flex: 1;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    padding: 24px 0px;
 `;
 const Navbar = styled.nav`
     display: flex;
@@ -501,6 +536,7 @@ const HostBtn = styled.div`
     font-size: 16px;
     font-weight: 400;
     border-radius: 30px;
+    white-space: nowrap;
     &:hover {
         background-color: #eeeeee;
         cursor: pointer;
