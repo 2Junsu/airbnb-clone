@@ -4,10 +4,13 @@ import Header from "./Header";
 import Review from "./Review";
 import Modal from "./Modal";
 import SignupModal from "./SignupModal";
+import SignupNoticeModal from "./SignupNoticeModal";
 import Signup from "./Signup";
 import SignupDetail from "./SignupDetail";
 import Carousel from "./Carousel";
 import Footer from "./Footer";
+import Button from "./Button";
+
 export {
     LodgingCard,
     CategoryItem,
@@ -15,8 +18,10 @@ export {
     Review,
     Modal,
     SignupModal,
+    SignupNoticeModal,
     Signup,
     SignupDetail,
     Carousel,
     Footer,
+    Button,
 };
