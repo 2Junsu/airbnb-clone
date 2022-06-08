@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
-import { saveUserInfo, handleEmailValid } from "../redux/reducer/signup";
+import {
+    saveUserInfo,
+    handleEmailValid,
+    handleSignupNotice,
+} from "../redux/reducer/signup";
 
 const SignupDetail = (props) => {
     const { closeModal } = props;
@@ -20,6 +24,7 @@ const SignupDetail = (props) => {
         e.preventDefault();
         dispatch(saveUserInfo(form));
         closeModal();
+        dispatch(handleSignupNotice(true));
     };
 
     const handleUserInfo = (e) => {

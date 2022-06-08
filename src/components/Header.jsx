@@ -1,15 +1,18 @@
 import React, { useState, useRef, useEffect } from "react";
 import logo from "../assets/imgs/airbnb.png";
 import { Link } from "react-router-dom";
-import { SignupModal } from ".";
+import { SignupModal, SignupNoticeModal } from ".";
 import styled from "styled-components";
-import { useDispatch } from "react-redux";
-import { handleEmailValid } from "../redux/reducer/signup";
+import { useDispatch, useSelector } from "react-redux";
+import { handleEmailValid, handleSignupNotice } from "../redux/reducer/signup";
 
 const Header = () => {
     const [openMemberInfo, setOpenMemberInfo] = useState(false);
     const [isSignupOpen, setIsSignupOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const isSignupNoticeOpen = useSelector(
+        (state) => state.signup.isSignupNoticeOpen
+    );
 
     const dispatch = useDispatch();
     const memberRef = useRef();
@@ -217,6 +220,13 @@ const Header = () => {
                 <SignupModal
                     modalStatus={isSignupOpen}
                     closeModal={HandleSignupModal}
+                    width={500}
+                />
+                <SignupNoticeModal
+                    modalStatus={isSignupNoticeOpen}
+                    closeModal={() => {
+                        dispatch(handleSignupNotice(false));
+                    }}
                     width={500}
                 />
             </HeaderWrap>
